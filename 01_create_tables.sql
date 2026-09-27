@@ -94,3 +94,10 @@ GROUP BY p.product_id, p.product_name;
 SELECT c.customer_name, o.order_id, o.sales
 FROM customers c
 FULL OUTER JOIN orders o ON c.customer_id = o.customer_id;
+
+/* Uloha 7*/
+
+SELECT c.region, SUM(o.sales) AS total_sales
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+GROUP BY c.region;
