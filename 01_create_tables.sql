@@ -82,3 +82,9 @@ FROM customers c
 LEFT JOIN orders o ON c.customer_id = o.customer_id
 GROUP BY c.region;
 
+/* Uloha 5*/
+
+SELECT p.product_name, SUM(CASE WHEN o.sales IS NULL THEN 0 ELSE o.sales END) AS total
+FROM products p
+LEFT JOIN orders o ON p.product_id = o.product_id
+GROUP BY p.product_id, p.product_name;
