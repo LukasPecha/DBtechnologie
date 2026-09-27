@@ -101,3 +101,9 @@ SELECT c.region, SUM(o.sales) AS total_sales
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id
 GROUP BY c.region;
+
+/* Uloha 8*/
+SELECT c.customer_name, COUNT(o.order_id) AS order_count
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name;
