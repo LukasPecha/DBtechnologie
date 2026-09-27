@@ -114,3 +114,10 @@ SELECT p.category, AVG(o.discount) AS avg_discount
 FROM orders o
 JOIN products p ON o.product_id = p.product_id
 GROUP BY p.category;
+
+/* Uloha 10*/
+SELECT c.customer_name, SUM(o.sales) AS total_sales
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+GROUP BY c.customer_id, c.customer_name
+HAVING SUM(o.sales) > 2000;
